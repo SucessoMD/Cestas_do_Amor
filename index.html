@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Cestas personalizadas para o Dia dos Namorados com entrega rápida e atendimento via WhatsApp. Surpreenda quem você ama!"/>
+  <title>Cestas do Amor 💝</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <header class="bg-gradient p-3 sticky-top shadow-lg">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="fs-3 text-white">Cestas do Amor 💝</h1>
+      <div>
+        <a href="#cestas" class="text-black me-3">Cestas</a>
+        <a href="#como-funciona" class="text-black me-3">Como Funciona</a>
+        <a href="#contato" class="text-black">Contato</a>
+        <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#modalCarrinho">
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero text-center text-white d-flex align-items-center justify-content-center flex-column">
+    <h2 class="display-4">Surpreenda neste Dia dos Namorados</h2>
+    <p class="lead mt-3">Escolha a cesta ideal e envie amor com um clique!</p>
+    <a href="#cestas" class="btn btn-lg btn-primary mt-4">Ver Cestas</a>
+  </section>
+
+  <section id="cestas" class="container py-5">
+    <h2 class="text-center mb-5 text-primary">Nossas Cestas</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta1.jpg" class="card-img-top" alt="Cesta Romântica">
+          <div class="card-body text-center">
+            <h3 class="card-title">Cesta Romântica</h3>
+            <p class="card-text">Com chocolates, vinho e pelúcia.</p>
+            <p class="fw-bold">R$ 149,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta2.jpg" class="card-img-top" alt="Cesta Gourmet">
+          <div class="card-body text-center">
+            <h3 class="card-title">Cesta Gourmet</h3>
+            <p class="card-text">Com delícias artesanais e amor.</p>
+            <p class="fw-bold">R$ 189,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta3.jpg" class="card-img-top" alt="Cesta Café da Manhã">
+          <div class="card-body text-center">
+            <h3 class="card-title">Café da Manhã</h3>
+            <p class="card-text">Pães, frutas e guloseimas especiais.</p>
+            <p class="fw-bold">R$ 169,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta4.jpg" class="card-img-top" alt="Cesta Premium">
+          <div class="card-body text-center">
+            <h3 class="card-title">Cesta Premium</h3>
+            <p class="card-text">Champagne, chocolates finos e flores.</p>
+            <p class="fw-bold">R$ 299,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta5.jpg" class="card-img-top" alt="Cesta Doces Sonhos">
+          <div class="card-body text-center">
+            <h3 class="card-title">Doces Sonhos</h3>
+            <p class="card-text">Chocolates, bombons e doces especiais.</p>
+            <p class="fw-bold">R$ 139,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta6.jpg" class="card-img-top" alt="Cesta Momentos">
+          <div class="card-body text-center">
+            <h3 class="card-title">Momentos</h3>
+            <p class="card-text">Vinho, queijos e antepastos.</p>
+            <p class="fw-bold">R$ 229,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta7.jpg" class="card-img-top" alt="Cesta Amor Doce">
+          <div class="card-body text-center">
+            <h3 class="card-title">Amor Doce</h3>
+            <p class="card-text">Cookies, brownies e chocolates.</p>
+            <p class="fw-bold">R$ 159,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta8.jpg" class="card-img-top" alt="Cesta Café Especial">
+          <div class="card-body text-center">
+            <h3 class="card-title">Café Especial</h3>
+            <p class="card-text">Café gourmet, biscoitos e chocolates.</p>
+            <p class="fw-bold">R$ 179,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta9.jpg" class="card-img-top" alt="Cesta Delícias">
+          <div class="card-body text-center">
+            <h3 class="card-title">Delícias</h3>
+            <p class="card-text">Chocolates, bolos e guloseimas.</p>
+            <p class="fw-bold">R$ 169,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta10.jpg" class="card-img-top" alt="Cesta Surpresa">
+          <div class="card-body text-center">
+            <h3 class="card-title">Surpresa</h3>
+            <p class="card-text">Mix de produtos selecionados com carinho.</p>
+            <p class="fw-bold">R$ 199,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta11.jpg" class="card-img-top" alt="Cesta Luxo">
+          <div class="card-body text-center">
+            <h3 class="card-title">Luxo</h3>
+            <p class="card-text">Produtos importados e especiais.</p>
+            <p class="fw-bold">R$ 399,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta12.jpg" class="card-img-top" alt="Cesta Carinho">
+          <div class="card-body text-center">
+            <h3 class="card-title">Carinho</h3>
+            <p class="card-text">Pelúcia, chocolates e cartão personalizado.</p>
+            <p class="fw-bold">R$ 149,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta13.jpg" class="card-img-top" alt="Cesta Celebração">
+          <div class="card-body text-center">
+            <h3 class="card-title">Celebração</h3>
+            <p class="card-text">Espumante, taças e petiscos finos.</p>
+            <p class="fw-bold">R$ 259,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta14.jpg" class="card-img-top" alt="Cesta Amor Perfeito">
+          <div class="card-body text-center">
+            <h3 class="card-title">Amor Perfeito</h3>
+            <p class="card-text">Mix de chocolates e flores.</p>
+            <p class="fw-bold">R$ 189,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta15.jpg" class="card-img-top" alt="Cesta Especial">
+          <div class="card-body text-center">
+            <h3 class="card-title">Especial</h3>
+            <p class="card-text">Produtos selecionados com muito amor.</p>
+            <p class="fw-bold">R$ 219,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="img/cesta16.jpg" class="card-img-top" alt="Cesta Sublime">
+          <div class="card-body text-center">
+            <h3 class="card-title">Sublime</h3>
+            <p class="card-text">Para momentos inesquecíveis.</p>
+            <p class="fw-bold">R$ 279,00</p>
+            <button onclick="adicionarAoCarrinho(this)" class="btn btn-outline-primary">Adicionar ao Carrinho</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center text-primary mb-4">Como Funciona</h2>
+      <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Escolha sua cesta favorita</li>
+        <li class="list-group-item">Adicione ao carrinho</li>
+        <li class="list-group-item">Finalize pelo WhatsApp</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer id="contato" class="bg-gradient text-black text-center py-4 mt-5">
+    <div class="container">
+      <h3 class="mb-3">Entre em Contato</h3>
+      <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+        <i class="fab fa-whatsapp fs-4"></i>
+        <a href="https://wa.me/5547984810792" class="text-black text-decoration-none fs-5" target="_blank">(47) 98481-0792</a>
+      </div>
+      <p class="mb-0">© 2025 Cestas do Amor. Feito com ❤️ para apaixonados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Carrinho -->
+  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-gradient text-white">
+          <h5 class="modal-title" id="modalCarrinhoLabel">Seu Carrinho <i class="fas fa-shopping-cart"></i></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="itens-carrinho" class="list-group mb-3"></ul>
+          <p id="total" class="fw-bold"></p>
+        </div>
+        <div class="modal-footer">
+          <a id="whatsapp-link" class="btn btn-success d-inline-flex align-items-center" target="_blank">
+            <i class="fab fa-whatsapp me-2"></i> Finalizar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

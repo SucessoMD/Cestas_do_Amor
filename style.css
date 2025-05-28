@@ -1,0 +1,465 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #FF1744;
+  --secondary-color: #FF4081;
+  --accent-color: #F50057;
+  --text-primary: #2C2C2C;
+  --text-secondary: #666666;
+  --background: #ffffff;
+  --surface: #FFF5F5;
+  --gradient-primary: linear-gradient(135deg, #FF1744, #FF4081);
+}
+
+body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Navbar - Design moderno */
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(255, 23, 68, 0.1);
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  padding: 0.8rem 2rem;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+header nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+header nav a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: transparent;
+}
+
+header nav a:hover {
+  background: var(--gradient-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+}
+
+header nav a.active {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* Hero section aprimorada */
+.hero {
+  height: 90vh;
+  background: linear-gradient(135deg, 
+    rgba(209, 132, 147, 0.9), 
+    rgba(255, 64, 129, 0.8)),
+    url('banner.png') center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  margin-top: 4rem;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Botões modernos e interativos */
+.btn {
+  background: var(--gradient-primary);
+  border: none;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Removendo animações antigas */
+.btn::after {
+  display: none !important;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.3);
+}
+
+/* Seção de produtos refinada */
+#cestas {
+  padding: 6rem 2rem;
+  background: var(--surface);
+}
+
+#cestas h2 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#cestas h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+/* Cards modernos e elegantes */
+.card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(255, 23, 68, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 23, 68, 0.03)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+.card-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.fw-bold {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* Seção Como Funciona moderna */
+#como-funciona {
+  background: white;
+  padding: 6rem 2rem;
+}
+
+#como-funciona h2 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#como-funciona h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+/* Modal refinado */
+.modal-content {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+.modal-header {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 1.5rem;
+  border: none;
+}
+
+.modal-backdrop.show {
+  opacity: 0.8;
+  backdrop-filter: blur(5px);
+}
+
+/* Footer elegante */
+footer {
+  background: var(--gradient-primary);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 0;
+}
+
+footer h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer a {
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+footer .whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+footer .whatsapp-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries aprimoradas */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.8rem;
+  }
+
+  header {
+    padding: 0.8rem 1rem;
+  }
+
+  header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header nav {
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 1.5rem !important;
+  }
+  
+  #cestas h2,
+  #como-funciona h2 {
+    font-size: 2rem;
+  }
+
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  footer h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  header nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero h2 {
+    font-size: 3.2rem;
+  }
+}
+
+/* Sobrescrevendo classes do Bootstrap */
+.text-primary {
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  transition: all 0.3s ease !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  width: auto !important;
+  display: inline-block !important;
+  text-align: center !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--gradient-primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+}
+
+/* Botões das cestas */
+.card .btn-outline-primary {
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
+  background: transparent !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  min-width: 200px !important;
+  margin: 0.5rem auto !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  text-align: center !important;
+  border-radius: 8px !important;
+}
+
+.card .btn-outline-primary:hover {
+  background: var(--gradient-primary) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
+}
+
+/* Outros botões */
+.btn-primary {
+  background: var(--gradient-primary) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FF4081, #FF1744) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 23, 68, 0.3);
+}
