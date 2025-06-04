@@ -463,3 +463,27 @@ footer .whatsapp-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 23, 68, 0.3);
 }
+
+/* Notificações Toast */
+.toast-notificacao {
+  position: fixed; /* Fixa o elemento na tela */
+  bottom: 20px; /* Distância do fundo da tela */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajusta a centralização para o centro do elemento */
+  background-color: rgba(255, 64, 129, 0.95); /* Cor de fundo com transparência */
+  color: white; /* Cor do texto */
+  padding: 12px 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  z-index: 9999; /* Garante que fique acima de outros elementos */
+  opacity: 0; /* Começa invisível */
+  visibility: hidden; /* Esconde completamente quando opacidade é 0 */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Transição suave */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  font-size: 0.95rem; /* Tamanho da fonte */
+  text-align: center;
+}
+
+.toast-notificacao.show {
+  opacity: 1; /* Torna visível */
+  visibility: visible; /* Torna o elemento visível */
+}
