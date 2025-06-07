@@ -1,90 +1,9 @@
 const carrinho = [];
-const ADMIN_PASSWORD = 'qedesobsh@000192'; // Você pode alterar essa senha depois
-
-// Gerenciamento de estoque
-let estoque = JSON.parse(localStorage.getItem('estoque')) || {
-  "Cesta da Paixão": false, // Esgotada
-  "Cesta Mimo Especial": false, // Esgotada
-  "Cesta Mimo Café": false // Esgotada
-};
-
-// Inicializa o estoque se não existir
-function inicializarEstoque() {
-  const cestas = document.querySelectorAll('.card');
-  cestas.forEach(cesta => {
-    const nome = cesta.querySelector('.card-title').textContent;
-    if (!(nome in estoque)) {
-      estoque[nome] = true; // true = disponível, false = esgotado
-    }
-  });
-  atualizarBotoesEstoque();
-  salvarEstoque();
-}
-
-function salvarEstoque() {
-  localStorage.setItem('estoque', JSON.stringify(estoque));
-}
-
-function atualizarBotoesEstoque() {
-  const cestas = document.querySelectorAll('.card');
-  cestas.forEach(cesta => {
-    const nome = cesta.querySelector('.card-title').textContent;
-    const botaoComprar = cesta.querySelector('button');
-    const disponivel = estoque[nome];
-
-    if (!disponivel) {
-      botaoComprar.textContent = 'ESGOTADO';
-      botaoComprar.disabled = true;
-      botaoComprar.classList.remove('btn-outline-primary');
-      botaoComprar.classList.add('btn-secondary');
-    } else {
-      botaoComprar.textContent = 'Adicionar ao Carrinho';
-      botaoComprar.disabled = false;
-      botaoComprar.classList.add('btn-outline-primary');
-      botaoComprar.classList.remove('btn-secondary');
-    }
-  });
-}
-
-function toggleModoAdmin() {
-  const senha = prompt('Digite a senha de administrador:');
-  if (senha === ADMIN_PASSWORD) {
-    const cestas = document.querySelectorAll('.card');
-    cestas.forEach(cesta => {
-      const nome = cesta.querySelector('.card-title').textContent;
-      const botaoComprar = cesta.querySelector('button');
-      
-      // Adiciona botão de toggle estoque
-      if (!cesta.querySelector('.btn-toggle-estoque')) {
-        const btnToggleEstoque = document.createElement('button');
-        btnToggleEstoque.className = 'btn btn-sm btn-warning mt-2 btn-toggle-estoque';
-        btnToggleEstoque.textContent = estoque[nome] ? 'Marcar Esgotado' : 'Marcar Disponível';
-        btnToggleEstoque.onclick = () => toggleEstoque(nome, btnToggleEstoque);
-        cesta.querySelector('.card-body').appendChild(btnToggleEstoque);
-      }
-    });
-  } else {
-    alert('Senha incorreta!');
-  }
-}
-
-function toggleEstoque(nomeCesta, botaoToggle) {
-  estoque[nomeCesta] = !estoque[nomeCesta];
-  botaoToggle.textContent = estoque[nomeCesta] ? 'Marcar Esgotado' : 'Marcar Disponível';
-  atualizarBotoesEstoque();
-  salvarEstoque();
-}
+const ADMIN_PASSWORD = 'qedesobsh@000192';
 
 function adicionarAoCarrinho(botao) {
   const item = botao.closest('.card');
   const nome = item.querySelector('.card-title').textContent;
-  
-  // Verifica se está disponível antes de adicionar
-  if (!estoque[nome]) {
-    exibirNotificacao(`${nome} está esgotado!`);
-    return;
-  }
-  
   const preco = parseFloat(item.querySelector('.fw-bold').textContent.replace('R$', '').replace(',', '.'));
 
   carrinho.push({ nome, preco });
@@ -154,8 +73,3 @@ function exibirNotificacao(mensagem) {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
-
-// Inicializa o estoque quando a página carrega
-document.addEventListener('DOMContentLoaded', () => {
-  inicializarEstoque();
-});
