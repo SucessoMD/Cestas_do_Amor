@@ -2,7 +2,11 @@ const carrinho = [];
 const ADMIN_PASSWORD = 'qedesobsh@000192'; // Você pode alterar essa senha depois
 
 // Gerenciamento de estoque
-let estoque = JSON.parse(localStorage.getItem('estoque')) || {};
+let estoque = JSON.parse(localStorage.getItem('estoque')) || {
+  "Cesta da Paixão": false, // Esgotada
+  "Cesta Mimo Especial": false, // Esgotada
+  "Cesta Mimo Café": false // Esgotada
+};
 
 // Inicializa o estoque se não existir
 function inicializarEstoque() {
